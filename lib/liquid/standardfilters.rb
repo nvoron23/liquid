@@ -274,7 +274,7 @@ module Liquid
 
       def initialize(input)
         @input =
-          if input.is_a?(Array) || input.kind_of?(Enumerable)
+          if input.kind_of?(Enumerable)
             input
           else
             Array(input)
