@@ -115,6 +115,11 @@ class StandardFiltersTest < Test::Unit::TestCase
     assert_equal [{"a" => 1}, {"a" => 2}, {"a" => 3}, {"a" => 4}], @filters.sort([{"a" => 4}, {"a" => 3}, {"a" => 1}, {"a" => 2}], "a")
   end
 
+  def test_uniq
+    assert_equal [1,3,2,4], @filters.uniq([1,1,3,2,3,1,4,3,2,1])
+    assert_equal [{"a" => 1}, {"a" => 3}, {"a" => 2}], @filters.uniq([{"a" => 1}, {"a" => 3}, {"a" => 1}, {"a" => 2}], "a")
+  end
+
   def test_reverse
     assert_equal [4,3,2,1], @filters.reverse([1,2,3,4])
   end
